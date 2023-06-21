@@ -68,7 +68,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         //resultSearchController.isActive = false
         if let svc = segue.destination as? DetailViewCCViewController {
             var layla = NSMutableDictionary()
-            selectedRepo?.getDisplayInfo(dict: &layla)
+            selectedRepo?.getDisplayInfo(displayDict: &layla)
             svc.wiki = layla["layla4"] as! String//"https://www.istockphoto.com/"
         }
 
@@ -79,64 +79,81 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         /**********************TESTING AREA************************************/
         //testing the Rules logic
-        //create 2 fields ( these should be 2 fields extracted from real instances
-        guard let eyesColorTemplate = TextFieldTemplate(fId: "-1",fLabel: "eyes color",desiredValues: ["Blue","Brown"])
+        //create a gril template with 2 Text Fields ('Name' and 'eyes color')
+        
+        //create the fields templates first
+        guard let eyesColorTemplate = TextFieldTemplate(fId: "TF1",fLabel: "eyes color",desiredValues: ["Blue","Brown"])
             else {
                 return
         }
-        //Rasha info
+        guard let nameTemplate = TextFieldTemplate(fId: "TF2",fLabel: "Name")
+            else {
+                return
+        }
+        
+        
+        //create a girl template and add the above fields
+        var girlTemplate=GirlTemplate(tID: "GTmpl1")
+        girlTemplate.addFieldTemplate(fTemplate: nameTemplate)
+        girlTemplate.addFieldTemplate(fTemplate: eyesColorTemplate)
+        
+        //Now create an instance of girlTemplate who has a name rasha and eyes color blue
+        //same logic. create the text fields first
         //Name Text Field
-        guard let rashaName = TextField(fId: "1",fLabel: "Name",val: "Rasha")
+        guard let rashaName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Rasha")
             else {
                 return
         }
         //Eyes Color Text Field
-        guard let rashaEyesColor = TextField(fId: "2",fLabel: "eyes color",val: "Blue")
+        guard let rashaEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(), val: "Blue")
             else {
                 return
         }
+        //create the girl's instance
+        let rasha = Girl(templID: girlTemplate.getID())
+        rasha.addField(field: rashaName)
+        rasha.addField(field: rashaEyesColor)
         
-        guard let rasha = Girl(gID: 1,gName: rashaName ,eColor: rashaEyesColor)
-            else {
-                return
-        }
-        
-        //Sally info
+        //Sally instance info
         //Name Text Field
-        guard let sallyName = TextField(fId: "1",fLabel: "Name",val: "Sally")
+        guard let sallyName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Sally")
             else {
                 return
         }
         //Eyes Color Text Field
-        guard let sallyEyesColor = TextField(fId: "2",fLabel: "eyes color",val: "Brown")
+        guard let sallyEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(),val: "Brown")
             else {
                 return
         }
         
-        guard let sally = Girl(gID: 1,gName: sallyName ,eColor: sallyEyesColor)
-            else {
-                return
-        }
+        //create the girl's instance
+        let sally = Girl(templID: girlTemplate.getID())
+        sally.addField(field: sallyName)
+        sally.addField(field: sallyEyesColor)
         
         //Soha info
         //Name Text Field
-        guard let sohaName = TextField(fId: "1",fLabel: "Name",val: "Soha")
+        guard let sohaName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Soha")
             else {
                 return
         }
         //Eyes Color Text Field
-        guard let sohaEyesColor = TextField(fId: "2",fLabel: "eyes color",val: "Black")
+        guard let sohaEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(),val: "Black")
             else {
                 return
         }
         
-        guard let soha = Girl(gID: 1,gName: sohaName ,eColor: sohaEyesColor)
-            else {
-                return
-        }
+        //create the girl's instance
+        let soha = Girl(templID: girlTemplate.getID())
+        soha.addField(field: sohaName)
+        soha.addField(field: sohaEyesColor)
         
         
-        var myCrushesEyes = [rashaEyesColor,sallyEyesColor,sohaEyesColor]
+        var myCrushesEyes = [rasha.eyesColor,sally.eyesColor,soha.eyesColor]
+        var eyesColor = [Field]()
+        eyesColor.append(rasha.eyesColor ?? rashaEyesColor)
+        eyesColor.append(sally.eyesColor ?? rashaEyesColor)
+        eyesColor.append(soha.eyesColor ?? rashaEyesColor)
         
         var myCrushes = [rasha,sally,soha]
         
@@ -156,13 +173,15 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         //create a filter for the fields
         
-        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: myCrushesEyes)
+        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: eyesColor)
+        
+        var girlsFilter = FilterItems.filterItemsBy(rule: eColor, items: myCrushes)
         
         
         
         
         
-        
+    
         /**********************END TESTING AREA********************************/
         
         
@@ -228,7 +247,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         for counter in (repos.count-count)..<(repos.count) {
             //Simulating slow download using large images
             var layla = NSMutableDictionary()
-            repos[counter].getDisplayInfo(dict: &layla)
+            repos[counter].getDisplayInfo(displayDict: &layla)
             let thumbnail = layla["layla4"] as! String
             let imageURL = URL(string: thumbnail)
             //if let imageURL = imageURL {
@@ -325,7 +344,7 @@ extension ViewController: UITableViewDataSource, UITabBarDelegate,UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCollectionViewCell
         var layla = NSMutableDictionary()
-        repos[indexPath.row].getDisplayInfo(dict: &layla)
+        repos[indexPath.row].getDisplayInfo(displayDict: &layla)
         cell.repoTitleLabel.text = layla["layla1"] as! String
         cell.repoOwnerLabel.text = layla["layla2"] as! String
         cell.repoDescrpLabel.text = layla["layla3"] as! String

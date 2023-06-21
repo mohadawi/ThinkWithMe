@@ -8,5 +8,27 @@
 
 import Foundation
 class Item{
-    func getDisplayInfo(dict: inout NSMutableDictionary){}
+    var fields:[Field]=[]
+    func getDisplayInfo(displayDict: inout NSMutableDictionary){}
 }
+
+
+class FilterItems
+{
+    static func filterItemsBy(rule: IRule, items: [Item])->[Item]
+    {
+        var neededItems = [Item]()
+        for i in items
+        {
+            for f in i.fields{
+                if (rule.isSatisfiedBy(field: f))
+                {
+                    neededItems.append(i)
+                    break
+                }
+            }
+        }
+        return neededItems
+    }
+}
+

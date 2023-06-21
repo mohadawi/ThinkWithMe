@@ -134,7 +134,7 @@ class Marvel:Item {
         return (items,totalCount!)
     }
     
-    override func getDisplayInfo(dict: inout NSMutableDictionary) {
+    override func getDisplayInfo(displayDict dict: inout NSMutableDictionary) {
         dict["layla1"] = name ?? "i am in";
         dict["layla2"] = starCount ?? "1";
         dict["layla3"] = description ?? "fudge";

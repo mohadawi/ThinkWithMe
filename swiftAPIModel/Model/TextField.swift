@@ -8,12 +8,13 @@
 
 import Foundation
 class TextField:Field{
-    var fieldId: String
+    
+    var templateID: String
     var fieldLabel: String
     var value: String
-    init?(fId:String, fLabel:String, val:String){
-        fieldId = fId
-        fieldLabel = fLabel
+    init?(fieldTmpId:String,fieldTmpLabel:String,val:String){
+        templateID = fieldTmpId
+        fieldLabel = fieldTmpLabel
         value = val
     }
     func getStringValue() -> String{
@@ -22,20 +23,35 @@ class TextField:Field{
     func getNumberValue() -> Double{
         return Double(FP_NAN)
     }
+    func getTempID() -> String {
+        return templateID
+    }
+    func getLabelValue() -> String {
+        return fieldLabel
+    }
+    func getTemplateID() -> String {
+        return templateID
+    }
 }
 
 class TextFieldTemplate:FieldTemplate{
-    var fieldId: String
-    var fieldLabel: String
-    var valuesList: [String]
+    var fieldTmpId: String
+    var fieldTmpLabel: String
+    var keywordsList: [String]?
     var value: String?
-    init?(fId:String, fLabel:String, desiredValues:[String]){
-        fieldId = fId
-        fieldLabel = fLabel
-        valuesList = desiredValues
+    init?(fId:String, fLabel:String, desiredValues:[String]=[]){
+        fieldTmpId = fId
+        fieldTmpLabel = fLabel
+        keywordsList = desiredValues
     }
     func getValuesList() -> [String]{
-        return valuesList
+        return keywordsList ?? []
+    }
+    func getID() -> String {
+        return fieldTmpId;
+    }
+    func getLabel() -> String {
+        return fieldTmpLabel
     }
 }
 

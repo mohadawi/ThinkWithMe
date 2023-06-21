@@ -34,6 +34,8 @@
 		4E9188B629B2AD74007F351B /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9188B529B2AD74007F351B /* ItemFactory.swift */; };
 		4E9188B829B549B1007F351B /* Marvel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9188B729B549B1007F351B /* Marvel.swift */; };
 		4EBABE1328CE702C00D637F6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBABE1228CE702C00D637F6 /* Repository.swift */; };
+		4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6562A23E5E7009F0C86 /* Template.swift */; };
+		4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		4E9188B529B2AD74007F351B /* ItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		4E9188B729B549B1007F351B /* Marvel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel.swift; sourceTree = "<group>"; };
 		4EBABE1228CE702C00D637F6 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		4EDBA6562A23E5E7009F0C86 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
+		4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				4E8D13B629C7BA3200B3473E /* CompositeRule.swift */,
 				4E8D13B829D0D9A700B3473E /* ValueGreaterThanRule.swift */,
 				4E8D13BC29D0DF5D00B3473E /* Girl.swift */,
+				4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */,
+				4EDBA6562A23E5E7009F0C86 /* Template.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				4E8D13B129C7B0FE00B3473E /* TextField.swift in Sources */,
 				4E640503277E4B0900BF1BB0 /* ListAPI.swift in Sources */,
 				4E807F3D2779078100D3FED1 /* AppDelegate.swift in Sources */,
+				4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */,
 				4E9188B429B2927B007F351B /* Item.swift in Sources */,
 				4E640508277E4B4300BF1BB0 /* Pizza.swift in Sources */,
 				4E8D13B929D0D9A700B3473E /* ValueGreaterThanRule.swift in Sources */,
@@ -379,6 +386,7 @@
 				4EBABE1328CE702C00D637F6 /* Repository.swift in Sources */,
 				4E64050F277E4B5600BF1BB0 /* DetailViewCCViewController.swift in Sources */,
 				4E8D13B529C7B4FE00B3473E /* ValueInListRule.swift in Sources */,
+				4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */,
 				4E807F6D2779094800D3FED1 /* FISClass.swift in Sources */,
 				4E640502277E4B0900BF1BB0 /* HTTPClient.swift in Sources */,
 				4E807F412779078100D3FED1 /* ContentView.swift in Sources */,

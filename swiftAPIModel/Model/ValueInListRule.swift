@@ -18,9 +18,13 @@ class ValueInListRule:CompositeRule{
         fTemplate = fT
     }
     override func isSatisfiedBy(field: Field) -> Bool {
-        for c in fTemplate.getValuesList(){
-            if c == field.getStringValue(){
-                return true
+        if type(of:field.getTemplate()) == type(of: fTemplate) {
+            for c in fTemplate.getValuesList()
+            {
+                if c == field.getStringValue()
+                {
+                    return true
+                }
             }
         }
         return false
