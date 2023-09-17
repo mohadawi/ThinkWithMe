@@ -11,7 +11,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
     @IBOutlet var tableView: UITableView!
     
     
-    let itemType = "Pizza"
+    let itemType = "Marvel"
     var imageURLs = [URL]()// holds the thumbnails urls of the guardian articles
     var downloadImageOperationQueue: OperationQueue? = OperationQueue()
     var operations = NSMutableDictionary()
@@ -21,11 +21,11 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
     var totalReposCount:Int = 0 // total count of articles returned
     var currentReposCount:Int = 0
     var baseUrl:String =
-   /* "https://gateway.marvel.com:443/v1/public/characters?apikey=21f76c4652c1d7a3063dbba2915e3e9a"
+    "https://gateway.marvel.com:443/v1/public/characters?apikey=21f76c4652c1d7a3063dbba2915e3e9a"
    
-   */
+   
 /* "https://content.guardianapis.com/search?api-key=302fe17b-9a43-4cf7-aa7c-2bf80a89dc8c&show-fields=starRating,thumbnail"// changes automatically
-    */ "https://private-anon-ba5c38fcb4-pizzaapp.apiary-mock.com/restaurants/restaurantId/menu?category=Pizza&orderBy=rank"
+    *//* "https://private-anon-ba5c38fcb4-pizzaapp.apiary-mock.com/restaurants/restaurantId/menu?category=Pizza&orderBy=rank"*/
  
     var currentPage:Int = 1 // implement paging
     var pageCount:Int = 30 // changes automatically
@@ -202,15 +202,16 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         
         baseUrl =
-        /*
+        
              "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=21f76c4652c1d7a3063dbba2915e3e9a&hash=b9f2459786b5d727984973cc47a8f854"
-             */
+             
         /*
              "https://content.guardianapis.com/search?api-key=302fe17b-9a43-4cf7-aa7c-2bf80a89dc8c&show-fields=starRating,thumbnail"
              */
         
         
-         "https://private-anon-ba5c38fcb4-pizzaapp.apiary-mock.com/restaurants/restaurantId/menu?category=Pizza&orderBy=rank"
+        /* "https://private-anon-ba5c38fcb4-pizzaapp.apiary-mock.com/restaurants/restaurantId/menu?category=Pizza&orderBy=rank"
+ */
         
         getReposPerPage(pageNum: currentPage)
     }
