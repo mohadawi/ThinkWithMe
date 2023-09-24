@@ -36,6 +36,10 @@
 		4EBABE1328CE702C00D637F6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBABE1228CE702C00D637F6 /* Repository.swift */; };
 		4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6562A23E5E7009F0C86 /* Template.swift */; };
 		4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */; };
+		4EE05AD42AC0CC4C00AB9CED /* FieldProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */; };
+		4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */; };
+		4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */; };
+		4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		4EBABE1228CE702C00D637F6 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4EDBA6562A23E5E7009F0C86 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlTemplate.swift; sourceTree = "<group>"; };
+		4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldProperty.swift; sourceTree = "<group>"; };
+		4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldProperty.swift; sourceTree = "<group>"; };
+		4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFields.swift; sourceTree = "<group>"; };
+		4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWindowFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,10 @@
 				4E8D13BC29D0DF5D00B3473E /* Girl.swift */,
 				4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */,
 				4EDBA6562A23E5E7009F0C86 /* Template.swift */,
+				4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */,
+				4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */,
+				4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */,
+				4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,12 +393,15 @@
 				4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */,
 				4E9188B429B2927B007F351B /* Item.swift in Sources */,
 				4E640508277E4B4300BF1BB0 /* Pizza.swift in Sources */,
+				4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */,
 				4E8D13B929D0D9A700B3473E /* ValueGreaterThanRule.swift in Sources */,
+				4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */,
 				4E8D13BB29D0DBFD00B3473E /* Field.swift in Sources */,
 				4EBABE1328CE702C00D637F6 /* Repository.swift in Sources */,
 				4E64050F277E4B5600BF1BB0 /* DetailViewCCViewController.swift in Sources */,
 				4E8D13B529C7B4FE00B3473E /* ValueInListRule.swift in Sources */,
 				4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */,
+				4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */,
 				4E807F6D2779094800D3FED1 /* FISClass.swift in Sources */,
 				4E640502277E4B0900BF1BB0 /* HTTPClient.swift in Sources */,
 				4E807F412779078100D3FED1 /* ContentView.swift in Sources */,
@@ -394,6 +409,7 @@
 				4E8D13B729C7BA3200B3473E /* CompositeRule.swift in Sources */,
 				4E9188B629B2AD74007F351B /* ItemFactory.swift in Sources */,
 				4E807F6F27790CBD00D3FED1 /* FISPerson.swift in Sources */,
+				4EE05AD42AC0CC4C00AB9CED /* FieldProperty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

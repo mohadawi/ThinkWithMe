@@ -8,16 +8,26 @@
 
 import Foundation
 class GirlTemplate:Template{
-    var tmpID:String
-    var fieldsTemplates: NSMutableDictionary = [:]
-    //var fieldsTemplates:[FieldTemplate] = []
-    func addFieldTemplate(fTemplate:FieldTemplate) {
+    
+    var tmplateID:String
+    //var fields: NSMutableDictionary = [:]
+    var fields:[Field] = []
+    /*
+    func addFieldTemplate(fTemplate:FieldProperty) {
         fieldsTemplates[fTemplate.getID()]=fTemplate
     }
+     */
+    func addField(f:Field?) {
+        fields.append(f!)
+    }
     init(tID:String) {
-        tmpID=tID
+        tmplateID=tID
     }
     func getID() ->String {
-        return tmpID
+        return tmplateID
     }
+    func getFields() -> [Field] {
+        return fields
+    }
+    
 }

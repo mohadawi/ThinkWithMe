@@ -13,13 +13,13 @@ protocol EyesColor:IRule {
 }*/
 class ValueInListRule:CompositeRule{
     //var value: String?
-    var fTemplate: FieldTemplate
-    init?(fT:FieldTemplate){
+    var fTemplate: FieldProperty
+    init?(fT:FieldProperty){
         fTemplate = fT
     }
     override func isSatisfiedBy(field: Field) -> Bool {
         //if type(of:field.getTemplate()) == type(of: fTemplate) {
-        if field.getTemplateID() == fTemplate.getID() {
+        //if field.getTemplateID() == fTemplate.getID() {
             for c in fTemplate.getValuesList()
             {
                 if c == field.getStringValue()
@@ -27,7 +27,7 @@ class ValueInListRule:CompositeRule{
                     return true
                 }
             }
-        }
+        //}
         return false
     }
 }

@@ -14,21 +14,23 @@ class Girl:Item{
     var eyesColor: TextField?
     var thumbnailUrl: String?
     var wiki: String?
+    var fields:[Field]=[]
     
-    init(templID:String){
-        girlTempateID = templID
+    init(templateID:String,templateFields:[Field]){
+        girlTempateID = templateID
+        fields = templateFields
     }
     
-    func addField(field:Field){
-        fields.append(field)
+    func mapFields(){
         //try a smart way to search for the matching field!
-        if field.getLabelValue().contains("Name"){
-            girlName=field as? TextField
+        for f in fields{
+            if f.getLabel().contains("Name"){
+                girlName=TextField(fId:f.getLabel(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
+            }
+            if f.getLabel().contains("Color"){
+                eyesColor=TextField(fId:f.getLabel(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
+            }
         }
-        if field.getLabelValue().contains("color"){
-            eyesColor=field as? TextField
-        }
-
     }
     override func getDisplayInfo(displayDict: inout NSMutableDictionary) {
         displayDict["layla1"] = girlName ?? "i am in";

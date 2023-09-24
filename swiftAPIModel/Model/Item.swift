@@ -8,11 +8,11 @@
 
 import Foundation
 class Item{
-    var fields:[Field]=[]
     func getDisplayInfo(displayDict: inout NSMutableDictionary){}
 }
 
 
+/*
 class FilterItems
 {
     static func filterItemsBy(rule: IRule, items: [Item])->[Item]
@@ -31,4 +31,5 @@ class FilterItems
         return neededItems
     }
 }
+ */
 

@@ -82,85 +82,56 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         //create a gril template with 2 Text Fields ('Name' and 'eyes color')
         
         //create the fields templates first
-        guard let eyesColorTemplate = TextFieldTemplate(fId: "TF1",fLabel: "eyes color",desiredValues: ["Blue","Brown"])
+        var eyesColorProperty = PropertyWindowFactory.create(itemType: "TextField", label: "eyes color",desiredList: ["Blue","Brown"])
+        
+        guard let name = TextField(fId:"Txt123", fLabel: "Name", val: "")
             else {
                 return
         }
-        guard let nameTemplate = TextFieldTemplate(fId: "TF2",fLabel: "Name")
+        guard let eyesColor = TextField(fId: "Txt124", fLabel: "Eyes Color", val: "",properties: [eyesColorProperty.getID()])
             else {
                 return
         }
-        
-        
+            
         //create a girl template and add the above fields
         var girlTemplate=GirlTemplate(tID: "GTmpl1")
-        girlTemplate.addFieldTemplate(fTemplate: nameTemplate)
-        girlTemplate.addFieldTemplate(fTemplate: eyesColorTemplate)
+        girlTemplate.addField(f: name)
+        girlTemplate.addField(f: eyesColor)
         
-        //Now create an instance of girlTemplate who has a name rasha and eyes color blue
-        //same logic. create the text fields first
-        //Name Text Field
-        guard let rashaName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Rasha")
-            else {
-                return
-        }
-        //Eyes Color Text Field
-        guard let rashaEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(), val: "Blue")
-            else {
-                return
-        }
-        //create the girl's instance
-        let rasha = Girl(templID: girlTemplate.getID())
-        rasha.addField(field: rashaName)
-        rasha.addField(field: rashaEyesColor)
+        //create a Rasha instance
+        let rasha = Girl(templateID: girlTemplate.getID(),templateFields: girlTemplate.fields)
+        rasha.mapFields()
+        rasha.girlName?.value = "Rasha"
+        rasha.eyesColor?.value = "Blue"
         
-        //Sally instance info
-        //Name Text Field
-        guard let sallyName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Sally")
-            else {
-                return
-        }
-        //Eyes Color Text Field
-        guard let sallyEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(),val: "Brown")
-            else {
-                return
-        }
         
-        //create the girl's instance
-        let sally = Girl(templID: girlTemplate.getID())
-        sally.addField(field: sallyName)
-        sally.addField(field: sallyEyesColor)
+        //create Sally instance
+        let sally = Girl(templateID: girlTemplate.getID(),templateFields: girlTemplate.fields)
+        sally.mapFields()
+        sally.girlName?.value = "Sally"
+        sally.eyesColor?.value = "Brown"
         
-        //Soha info
-        //Name Text Field
-        guard let sohaName = TextField(fieldTmpId: nameTemplate.getID(), fieldTmpLabel: nameTemplate.getLabel(),val: "Soha")
-            else {
-                return
-        }
-        //Eyes Color Text Field
-        guard let sohaEyesColor = TextField(fieldTmpId: eyesColorTemplate.getID(), fieldTmpLabel: eyesColorTemplate.getLabel(),val: "Black")
-            else {
-                return
-        }
         
-        //create the girl's instance
-        let soha = Girl(templID: girlTemplate.getID())
-        soha.addField(field: sohaName)
-        soha.addField(field: sohaEyesColor)
+        //create Soha instance
+        let soha = Girl(templateID: girlTemplate.getID(),templateFields: girlTemplate.fields)
+        soha.mapFields()
+        soha.girlName?.value = "Soha"
+        soha.eyesColor?.value = "Black"
+        
         
         
         var myCrushesEyes = [rasha.eyesColor,sally.eyesColor,soha.eyesColor]
-        var eyesColor = [Field]()
-        eyesColor.append(rasha.eyesColor ?? rashaEyesColor)
-        eyesColor.append(sally.eyesColor ?? rashaEyesColor)
-        eyesColor.append(soha.eyesColor ?? rashaEyesColor)
+        var eyes = [Field]()
+        eyes.append(rasha.eyesColor!)
+        eyes.append(sally.eyesColor!)
+        eyes.append(soha.eyesColor!)
         
         var myCrushes = [rasha,sally,soha]
         
         
         // create a composited rule ( The hard thing is that how do we create this rule in the template!!
         var c1 = CompositeRule()
-        guard let eColor = ValueInListRule(fT: eyesColorTemplate)
+        guard let eColor = ValueInListRule(fT: eyesColorProperty)
             else {
                 return
         }
@@ -173,9 +144,9 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         //create a filter for the fields
         
-        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: eyesColor)
+        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: eyes)
         
-        var girlsFilter = FilterItems.filterItemsBy(rule: eColor, items: myCrushes)
+        //var girlsFilter = FilterItems.filterItemsBy(rule: eColor, items: myCrushes)
         
         
         

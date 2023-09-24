@@ -10,11 +10,7 @@ import Foundation
 protocol Field{
     func getStringValue() -> String
     func getNumberValue() -> Double
-    func getLabelValue()-> String
-    func getTemplateID()-> String
-}
-protocol FieldTemplate {
-    func getValuesList() -> [String]
-    func getID() -> String
-    func getLabel() -> String
+    func getLabel()-> String
+    func getID()-> String
+    func getPropertiesIDs() -> [String]
 }

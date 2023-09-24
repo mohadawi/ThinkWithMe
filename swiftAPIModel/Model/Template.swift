@@ -8,5 +8,7 @@
 
 import Foundation
 protocol Template {
-    func addFieldTemplate(fTemplate:FieldTemplate)
+    func addField(f:Field?)
+    func getID()->String
+    func getFields()->[Field]
 }
