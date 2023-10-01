@@ -8,15 +8,19 @@
 
 import Foundation
 class Girl:Item{
-    var girlTempateID:String
+    var girlTempateID:String?
     var girlID:Int?
     var girlName: TextField?
     var eyesColor: TextField?
     var thumbnailUrl: String?
     var wiki: String?
-    var fields:[Field]=[]
+    
+    override init(){
+        super.init()
+    }
     
     init(templateID:String,templateFields:[Field]){
+        super.init()
         girlTempateID = templateID
         fields = templateFields
     }
@@ -31,6 +35,12 @@ class Girl:Item{
                 eyesColor=TextField(fId:f.getLabel(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
             }
         }
+        //remove the template fields and add the actual fields
+        //Note this should be made more dynamic like using a dictionary for all fields
+        fields.removeAll()
+        //add the actual fields
+        fields.append(contentsOf:[girlName!,eyesColor!])
+        
     }
     override func getDisplayInfo(displayDict: inout NSMutableDictionary) {
         displayDict["layla1"] = girlName ?? "i am in";

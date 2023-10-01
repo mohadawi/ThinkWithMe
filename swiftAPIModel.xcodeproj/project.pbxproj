@@ -40,6 +40,7 @@
 		4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */; };
 		4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */; };
 		4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */; };
+		4EE05ADC2ACA1F9B00AB9CED /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldProperty.swift; sourceTree = "<group>"; };
 		4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFields.swift; sourceTree = "<group>"; };
 		4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWindowFactory.swift; sourceTree = "<group>"; };
+		4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */,
 				4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */,
 				4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */,
+				4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				4E8D13BB29D0DBFD00B3473E /* Field.swift in Sources */,
 				4EBABE1328CE702C00D637F6 /* Repository.swift in Sources */,
 				4E64050F277E4B5600BF1BB0 /* DetailViewCCViewController.swift in Sources */,
+				4EE05ADC2ACA1F9B00AB9CED /* FilterItems.swift in Sources */,
 				4E8D13B529C7B4FE00B3473E /* ValueInListRule.swift in Sources */,
 				4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */,
 				4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */,

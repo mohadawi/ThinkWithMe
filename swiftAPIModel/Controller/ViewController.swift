@@ -144,9 +144,9 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         //create a filter for the fields
         
-        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: eyes)
+        var eyesFilter = FilterFields.filterFieldsBy(rule: eColor, fields: myCrushesEyes as! [Field])
         
-        //var girlsFilter = FilterItems.filterItemsBy(rule: eColor, items: myCrushes)
+        var girlsFilter = FilterItems.filterItemsBy(rule: eColor, items: myCrushes)
         
         
         
