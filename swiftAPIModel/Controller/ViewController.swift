@@ -13,10 +13,13 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
     
     let itemType = "Marvel"
     var imageURLs = [URL]()// holds the thumbnails urls of the guardian articles
+    var searchImageURLs = [URL]()
     var downloadImageOperationQueue: OperationQueue? = OperationQueue()
     var operations = NSMutableDictionary()
     var images = NSMutableDictionary()
+    
     var repos = /*[Repository]*/[Item]()// holds the guardian articles we want to list
+    var searchdata = [Item]()
     var selectedRepo : /*Repository?*/ Item?// holds the article that was clicked or selected
     var totalReposCount:Int = 0 // total count of articles returned
     var currentReposCount:Int = 0
@@ -31,35 +34,44 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
     var pageCount:Int = 30 // changes automatically
     
     //search bar
-    var resultSearchController = UISearchController()
+    private var resultSearchController = UISearchController()
     
     // MARK: Search Bar delegate functions
     func updateSearchResults(for searchController: UISearchController) {
-        reload()
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        baseUrl = " search?&api-key=19a3c46d-c355-40fa-b9b9-5b2893b34c1c&show-fields=starRating,thumbnail"
-        currentPage = 1
-        repos.removeAll()
+        searchBar.text=""
         self.tableView.reloadData()
-        getReposPerPage(pageNum: currentPage)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // to limit network activity, reload half a second after last key press.
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(ViewController.reload), object: nil)
-        self.perform(#selector(self.reload), with: nil, afterDelay: 0.5)
+        self.reload(searchText: searchText)
+        self.tableView.reloadData()
     }
     
     // reload the data when search text cahnges
-    @objc func reload() {
-        baseUrl = "https://content.guardianapis.com/search?q=" + resultSearchController.searchBar.text! + "&api-key=302fe17b-9a43-4cf7-aa7c-2bf80a89dc8c&show-fields=starRating,thumbnail"
-        currentPage = 1
-        repos.removeAll()
-        self.tableView.reloadData()
-        if(resultSearchController.searchBar.text! != ""){
-            getReposPerPage(pageNum: currentPage)
+    @objc func reload(searchText:String) {
+        searchImageURLs.removeAll()
+        var layla = NSMutableDictionary()
+        searchdata = searchText.isEmpty ? repos : repos.filter
+            {
+                (item: Item) -> Bool in
+                item.getDisplayInfo(displayDict: &layla)
+                var name = layla["layla1"] as! String
+                    return
+                        name.range(of: searchText, options: .caseInsensitive, range: nil,
+                locale: nil) != nil
+        }
+        var layla1 = NSMutableDictionary()
+        for ele in searchdata {
+            ele.getDisplayInfo(displayDict: &layla1)
+            let imageURL = URL(string: layla1["layla4"] as! String ?? "https://avatars1.githubusercontent.com/u/1961952?v=4" )
+            if let imageURL = imageURL {
+                searchImageURLs.append(imageURL)
+            }
         }
     }
     
@@ -259,6 +271,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
                     if visibleCellIndexPaths!.contains(indexPath) {
                         let cell = weakSelf?.tableView.cellForRow(at: indexPath) as? MainCollectionViewCell
                         cell?.avatar!.image = image
+                        cell?.avatar!.maskCircle(anyImage: image!)
                         cell?.activityIndicator.stopAnimating()
                     }
                 }
@@ -316,7 +329,9 @@ extension ViewController: UITableViewDataSource, UITabBarDelegate,UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCollectionViewCell
         var layla = NSMutableDictionary()
-        repos[indexPath.row].getDisplayInfo(displayDict: &layla)
+    if searchBarIsEmpty() {
+        
+    repos[indexPath.row].getDisplayInfo(displayDict: &layla)
         cell.repoTitleLabel.text = layla["layla1"] as! String
         cell.repoOwnerLabel.text = layla["layla2"] as! String
         cell.repoDescrpLabel.text = layla["layla3"] as! String
@@ -335,6 +350,24 @@ extension ViewController: UITableViewDataSource, UITabBarDelegate,UITableViewDel
                 getReposPerPage(pageNum: currentPage)
             }
         }
+    }
+    else {
+searchdata[indexPath.row].getDisplayInfo(displayDict: &layla)
+        cell.repoTitleLabel.text = layla["layla1"] as! String
+        cell.repoOwnerLabel.text = layla["layla2"] as! String
+        cell.repoDescrpLabel.text = layla["layla3"] as! String
+        let imageURL: URL? = searchImageURLs[indexPath.row]
+        if let imageURL = imageURL {
+            var imageData: Data? = nil
+            imageData = try? Data(contentsOf: imageURL)
+            var image: UIImage? = nil
+            if let imageData = imageData {
+                image = UIImage(data: imageData)
+            }
+            cell.avatar?.image = image
+            cell.activityIndicator.stopAnimating()
+        }
+    }
         return cell;
     }
     
@@ -344,7 +377,11 @@ extension ViewController: UITableViewDataSource, UITabBarDelegate,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.repos.count
+            if searchBarIsEmpty(){
+                return repos.count
+            } else {
+                return searchdata.count
+            }
     }
     
     // MARK: <UITableViewDelegate>
@@ -352,6 +389,24 @@ extension ViewController: UITableViewDataSource, UITabBarDelegate,UITableViewDel
         cancelDowloandImageOperationBlock(for: indexPath)
 
     }
+    
+    func searchBarIsEmpty() -> Bool {
+        return resultSearchController.searchBar.text?.isEmpty ?? true
+    }
 
 }
+extension UIImageView {
+  public func maskCircle(anyImage: UIImage) {
+    self.contentMode = UIView.ContentMode.scaleAspectFill
+    //self.layer.cornerRadius = self.frame.height / 2
+    //self.layer.masksToBounds = false
+    //self.clipsToBounds = true
 
+   self.layer.borderWidth = 1.0
+   self.layer.masksToBounds = false
+   self.layer.borderColor = UIColor.white.cgColor
+    self.layer.cornerRadius = self.frame.height / 2
+   self.clipsToBounds = true
+   self.image = anyImage
+  }
+}
