@@ -94,7 +94,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         //create a gril template with 2 Text Fields ('Name' and 'eyes color')
         
         //create the fields templates first
-        var eyesColorProperty = PropertyWindowFactory.create(itemType: "TextField", label: "eyes color",desiredList: ["Blue","Brown"])
+        var eyesColorProperty = PropertyWindowFactory.create(itemType: "DesiredValue", label: "eyes color",desiredList: ["Blue","Brown"])
         
         guard let name = TextField(fId:"Txt123", fLabel: "Name", val: "")
             else {

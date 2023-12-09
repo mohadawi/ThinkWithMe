@@ -7,12 +7,11 @@
 //
 
 import Foundation
-class TextFieldProperty:FieldProperty{
+class DesiredValueFieldProperty:FieldProperty{
     
     var propertyId: String
     var propertyLabel: String
     var keywordsList: [String]?
-    var value: String?
     init(pId:String="", pLabel:String="", desiredValues:[String]=[]){
         propertyId = pId
         propertyLabel = pLabel

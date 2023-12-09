@@ -431,38 +431,6 @@
             endingLineNumber = "45"
             landmarkName = "getRequestAPICall(_:_:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CB78EC7A-D105-4CE2-B1BB-266B3F234172 - f6c352acd2a9e53f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[4] = Value Promoted from Box&gt; of closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in swiftAPIModel.HTTPClient.getRequestAPICall(_: Swift.Optional&lt;Swift.String&gt;, _: Swift.Optional&lt;Swift.String&gt;, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "swiftAPIModel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammaddawi/Documents/API-Model-Swift/swiftAPIModel/swiftAPIModel/API/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "2655">
-               </Location>
-               <Location
-                  uuid = "CB78EC7A-D105-4CE2-B1BB-266B3F234172 - f6c352acd2a9e53f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[4] = Value Promoted from Box&gt; of closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in swiftAPIModel.HTTPClient.getRequestAPICall(_: Swift.Optional&lt;Swift.String&gt;, _: Swift.Optional&lt;Swift.String&gt;, completion: (Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "swiftAPIModel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammaddawi/Documents/API-Model-Swift/swiftAPIModel/swiftAPIModel/API/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "2691">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -591,38 +559,6 @@
             endingLineNumber = "160"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "53C782A9-6B1D-4F10-A5BD-F14573BC5DC4 - 81cd0c2eee1ca446"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "swiftAPIModel.ViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "swiftAPIModel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammaddawi/Documents/API-Model-Swift/swiftAPIModel/swiftAPIModel/Controller/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "5781">
-               </Location>
-               <Location
-                  uuid = "53C782A9-6B1D-4F10-A5BD-F14573BC5DC4 - 4785da552f554f68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; __C.UISearchController in swiftAPIModel.ViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "swiftAPIModel"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mohammaddawi/Documents/API-Model-Swift/swiftAPIModel/swiftAPIModel/Controller/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

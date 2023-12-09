@@ -14,12 +14,12 @@ class PropertyWindowFactory{
             let randomId = Int.random(in: 1..<5000)
             switch (itemType)
             {
-                case "TextField":
-                    let tempId = "txt" + String(randomId)
-                    return TextFieldProperty(pId: tempId,pLabel: label,desiredValues:desiredList);
+                case "DesiredValue":
+                    let tempId = "extra" + String(randomId)
+                    return DesiredValueFieldProperty(pId: tempId,pLabel: label,desiredValues:desiredList);
                 
             default:
-                return TextFieldProperty();
+                return DesiredValueFieldProperty();
         }
     }
 }

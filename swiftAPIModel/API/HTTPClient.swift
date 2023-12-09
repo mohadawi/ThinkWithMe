@@ -18,7 +18,7 @@ class HTTPClient {
     //get the list of repos "articles" (request returns 10 results per page)
     func getRequestAPICall(_ apiUurl: String?,_ type :String?,completion: @escaping (Error?) -> Void)
      {
-        var itemFactory = ItemFactory()
+        let itemFactory = ItemFactory()
         repos.removeAll()
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
