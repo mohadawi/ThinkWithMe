@@ -10,4 +10,5 @@ import Foundation
 protocol IRule {
     func isSatisfiedBy(field: Field) -> Bool
     func And(other: IRule) -> IRule
+    func getID()->String
 }

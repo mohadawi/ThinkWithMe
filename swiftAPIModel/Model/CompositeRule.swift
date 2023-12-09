@@ -8,6 +8,10 @@
 
 import Foundation
 class CompositeRule:IRule{
+    func getID() -> String {
+        return ""
+    }
+    
     func isSatisfiedBy(field: Field) -> Bool {
         return false
     }

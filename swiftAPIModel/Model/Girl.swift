@@ -29,10 +29,10 @@ class Girl:Item{
         //try a smart way to search for the matching field!
         for f in fields{
             if f.getLabel().contains("Name"){
-                girlName=TextField(fId:f.getLabel(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
+                girlName=TextField(fId:f.getID(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
             }
             if f.getLabel().contains("Color"){
-                eyesColor=TextField(fId:f.getLabel(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
+                eyesColor=TextField(fId:f.getID(), fLabel: f.getLabel(), val: "",properties:f.getPropertiesIDs())
             }
         }
         //remove the template fields and add the actual fields

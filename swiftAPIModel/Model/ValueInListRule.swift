@@ -30,7 +30,13 @@ class ValueInListRule:CompositeRule{
         //}
         return false
     }
+    
+    override func getID() -> String {
+        return fTemplate.getID()
+    }
 }
+
+
 
 /*
 class brownEyes:CompositeRule{

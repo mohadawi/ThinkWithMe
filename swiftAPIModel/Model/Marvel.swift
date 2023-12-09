@@ -17,7 +17,7 @@ class Marvel:Item {
     //MARK: Properties
     
     var repoId: String
-    var name: String
+    var name: TextField?
     var ownerName: String
     
     var description: String?
@@ -45,7 +45,7 @@ class Marvel:Item {
         
         // Initialize stored properties.
         self.repoId = repoId
-        self.name = name
+        self.name = TextField(fId: "marvelName", fLabel: "name",val:name )
         self.description = description
         self.ownerName = ownerName
         self.thumbnailUrl = thumbnailUrl
@@ -135,7 +135,7 @@ class Marvel:Item {
     }
     
     override func getDisplayInfo(displayDict dict: inout NSMutableDictionary) {
-        dict["layla1"] = name ?? "i am in";
+        dict["layla1"] = name?.getLabel() ?? "i am in";
         dict["layla2"] = starCount ?? "1";
         dict["layla3"] = description ?? "fudge";
         dict["layla4"] = thumbnailUrl ?? "https://avatars1.githubusercontent.com/u/1961952?v=4";
