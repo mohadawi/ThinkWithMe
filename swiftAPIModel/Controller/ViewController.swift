@@ -142,7 +142,6 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         
         // create a composited rule ( The hard thing is that how do we create this rule in the template!!
-        var c1 = CompositeRule()
         guard let eColor = ValueInListRule(fT: eyesColorProperty)
             else {
                 return
@@ -271,7 +270,8 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
                     if visibleCellIndexPaths!.contains(indexPath) {
                         let cell = weakSelf?.tableView.cellForRow(at: indexPath) as? MainCollectionViewCell
                         cell?.avatar!.image = image
-                        cell?.avatar!.maskCircle(anyImage: image!)
+                        //cell?.avatar!.maskCircle(anyImage: image!)
+                        cell?.avatar.makeRounded()
                         cell?.activityIndicator.stopAnimating()
                     }
                 }
@@ -402,11 +402,19 @@ extension UIImageView {
     //self.layer.masksToBounds = false
     //self.clipsToBounds = true
 
-   self.layer.borderWidth = 1.0
+   self.layer.borderWidth = 2.0
    self.layer.masksToBounds = false
    self.layer.borderColor = UIColor.white.cgColor
-    self.layer.cornerRadius = self.frame.height / 2
+   self.layer.cornerRadius = self.frame.width/2
    self.clipsToBounds = true
    self.image = anyImage
   }
+    
+    func makeRounded() {
+        layer.borderWidth = 1
+        layer.masksToBounds = false
+        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
+    }
 }

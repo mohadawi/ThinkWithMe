@@ -13,5 +13,9 @@ class Item{
     init() {
         fields = []
     }
+    func getName() -> TextField{
+        return TextField(fId:"change this to protocol/abstract", fLabel: "NAN", val: "")!
+    }
 }
+
 

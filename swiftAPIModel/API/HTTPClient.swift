@@ -44,7 +44,25 @@ class HTTPClient {
                 //if let characters1 = object1["response"] as? [String:Any]{
                     let (arr,count)=itemFactory.getItems(itemType: type!, classDictionary:nil , classDictionary1:object1)
                 self.repos.append(contentsOf:arr)
-                   self.totalCount=count
+                self.totalCount=count
+                
+                
+                //create a name filter
+                var nameProperty = PropertyWindowFactory.create(itemType: "DesiredValue", label: "name filter",desiredList: [ "Abyss","Aginar"])
+                guard let eColor = ValueInListRule(fT: nameProperty)
+                    else {
+                        return
+                }
+                //add the filter ID to the name of the repository
+                for repo in self.repos{
+                    repo.getName().propertiesIDs.append(nameProperty.getID())
+                    repo.fields.append(repo.getName())
+                }
+                //apply the filter to a temp list
+                var marvelFilter = FilterItems.filterItemsBy(rule: eColor, items: self.repos)
+                //replace the original list with the filtered list
+                self.repos = marvelFilter
+                
             }
             //}
             completion (error)

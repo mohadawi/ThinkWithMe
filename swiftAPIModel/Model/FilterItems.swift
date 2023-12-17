@@ -13,7 +13,7 @@ class FilterItems
     {
         //let itemType = String(describing: type(of: items))
         var neededItems = [Item]()
-        let r = rule as! CompositeRule
+        //let r = rule as! CompositeRule
         for i in items{
             for f in i.fields{
                 for p in f.getPropertiesIDs(){
