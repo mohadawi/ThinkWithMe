@@ -22,7 +22,7 @@ class Marvel:Item {
     
     var description: String?
     var thumbnailUrl: String?
-    var starCount: String?
+    var starCount: TextField
     var wiki: String?
     
     
@@ -49,13 +49,17 @@ class Marvel:Item {
         self.description = description
         self.ownerName = ownerName
         self.thumbnailUrl = thumbnailUrl
-        self.starCount = starCount
+        self.starCount = TextField(fId: "starCount", fLabel: "satrs rated",val:starCount ?? "0")!
         self.wiki = wiki
         
     }
     
     override func getName() -> TextField{
         return name
+    }
+    
+    override func getStarsCount() -> TextField{
+        return starCount
     }
     
     static func create(fromDictionary classDictionary: NSDictionary?) -> (Array<Item>,Int) {
@@ -113,7 +117,7 @@ class Marvel:Item {
                         
                         //read the stars count as NSNumber if any then cast it to string
                         if let stars = character.value(forKey: "urls") as? NSNumber{
-                            repo.starCount = stars.stringValue
+                            repo.starCount.value = stars.stringValue
                         }
                         
                         //get the thumbnail url if any
@@ -140,7 +144,7 @@ class Marvel:Item {
     
     override func getDisplayInfo(displayDict dict: inout NSMutableDictionary) {
         dict["layla1"] = name.getStringValue() ;
-        dict["layla2"] = starCount ?? "1";
+        dict["layla2"] = starCount.getStringValue() ?? "1";
         dict["layla3"] = description ?? "fudge";
         dict["layla4"] = thumbnailUrl ?? "https://avatars1.githubusercontent.com/u/1961952?v=4";
         dict["layla5"] = wiki ?? "www.google.com";

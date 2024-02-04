@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class DesiredValueFieldProperty:FieldProperty{
+class DesiredValueTextProperty:FieldProperty{
     
     var propertyId: String
     var propertyLabel: String
@@ -26,6 +26,10 @@ class DesiredValueFieldProperty:FieldProperty{
     
     func getLabel() -> String {
         return propertyLabel
+    }
+    
+    func getThreshHold() -> Double{
+        return Double.infinity
     }
     
 }

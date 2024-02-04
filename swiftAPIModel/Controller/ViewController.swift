@@ -94,7 +94,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         //create a gril template with 2 Text Fields ('Name' and 'eyes color')
         
         //create the fields templates first
-        var eyesColorProperty = PropertyWindowFactory.create(itemType: "DesiredValue", label: "eyes color",desiredList: ["Blue","Brown"])
+        var eyesColorProperty = PropertyWindowFactory.create(itemType: "ValueInList", label: "eyes color",desiredList: ["Blue","Brown"],propertyWindowDictionary: Dictionary<String,Any>())
         
         guard let name = TextField(fId:"Txt123", fLabel: "Name", val: "")
             else {
@@ -142,7 +142,7 @@ class ViewController: UIViewController,UISearchResultsUpdating,UISearchBarDelega
         
         
         // create a composited rule ( The hard thing is that how do we create this rule in the template!!
-        guard let eColor = ValueInListRule(fT: eyesColorProperty)
+        guard let eColor = ValueInListRule(fP: eyesColorProperty)
             else {
                 return
         }

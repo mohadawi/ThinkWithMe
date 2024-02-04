@@ -6,22 +6,28 @@
 //  Copyright © 2023 Mohammad Dawi. All rights reserved.
 //
 
-/*
+
 import Foundation
 
 class ValueGreaterThanRule:CompositeRule{
     //var value: String?
-    var fTemplate: FieldTemplate
-    init?(fT:FieldTemplate){
-        fTemplate = fT
+    var pTemplate: FieldProperty
+    init?(fP:FieldProperty){
+        pTemplate = fP
     }
-    override func isSatisfiedBy(field: Field) -> Bool {
-        for c in fTemplate.valuesList{
-            if c == field.value{
-                return true
+    override func isSatisfiedBy(field: Field) ->Bool {
+        for p in field.getPropertiesIDs(){
+            if p == self.getID() {
+                if pTemplate.getThreshHold() < field.getNumberValue(){
+                    return true
+                }
             }
         }
         return false
+    }
+    
+    override func getID() -> String {
+        return pTemplate.getID()
     }
 }
 
@@ -48,4 +54,3 @@ class greenEyes:CompositeRule{
     }
 }
  */
-*/

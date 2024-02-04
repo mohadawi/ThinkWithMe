@@ -37,10 +37,11 @@
 		4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6562A23E5E7009F0C86 /* Template.swift */; };
 		4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */; };
 		4EE05AD42AC0CC4C00AB9CED /* FieldProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */; };
-		4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */; };
+		4EE05AD62AC0CD1A00AB9CED /* DesiredValueTextProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD52AC0CD1A00AB9CED /* DesiredValueTextProperty.swift */; };
 		4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */; };
 		4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */; };
 		4EE05ADC2ACA1F9B00AB9CED /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */; };
+		4EE05ADE2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,10 +98,11 @@
 		4EDBA6562A23E5E7009F0C86 /* Template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlTemplate.swift; sourceTree = "<group>"; };
 		4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldProperty.swift; sourceTree = "<group>"; };
-		4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldProperty.swift; sourceTree = "<group>"; };
+		4EE05AD52AC0CD1A00AB9CED /* DesiredValueTextProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesiredValueTextProperty.swift; sourceTree = "<group>"; };
 		4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFields.swift; sourceTree = "<group>"; };
 		4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWindowFactory.swift; sourceTree = "<group>"; };
 		4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
+		4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueGreaterThanNumberProperty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +157,11 @@
 				4EDBA6582A23EF77009F0C86 /* GirlTemplate.swift */,
 				4EDBA6562A23E5E7009F0C86 /* Template.swift */,
 				4EE05AD32AC0CC4C00AB9CED /* FieldProperty.swift */,
-				4EE05AD52AC0CD1A00AB9CED /* TextFieldProperty.swift */,
+				4EE05AD52AC0CD1A00AB9CED /* DesiredValueTextProperty.swift */,
 				4EE05AD72AC0CE1400AB9CED /* FilterFields.swift */,
 				4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */,
 				4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */,
+				4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				4E9188B429B2927B007F351B /* Item.swift in Sources */,
 				4E640508277E4B4300BF1BB0 /* Pizza.swift in Sources */,
 				4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */,
+				4EE05ADE2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift in Sources */,
 				4E8D13B929D0D9A700B3473E /* ValueGreaterThanRule.swift in Sources */,
 				4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */,
 				4E8D13BB29D0DBFD00B3473E /* Field.swift in Sources */,
@@ -405,7 +409,7 @@
 				4EE05ADC2ACA1F9B00AB9CED /* FilterItems.swift in Sources */,
 				4E8D13B529C7B4FE00B3473E /* ValueInListRule.swift in Sources */,
 				4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */,
-				4EE05AD62AC0CD1A00AB9CED /* TextFieldProperty.swift in Sources */,
+				4EE05AD62AC0CD1A00AB9CED /* DesiredValueTextProperty.swift in Sources */,
 				4E807F6D2779094800D3FED1 /* FISClass.swift in Sources */,
 				4E640502277E4B0900BF1BB0 /* HTTPClient.swift in Sources */,
 				4E807F412779078100D3FED1 /* ContentView.swift in Sources */,

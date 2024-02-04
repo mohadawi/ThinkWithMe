@@ -16,14 +16,14 @@ class FilterItems
         //let r = rule as! CompositeRule
         for i in items{
             for f in i.fields{
-                for p in f.getPropertiesIDs(){
-                    if (rule.getID() == p){
+                //for p in f.getPropertiesIDs(){
+                    //if (rule.getID() == p){
                         if (rule.isSatisfiedBy(field: f)){
                             neededItems.append(i)
                             break
                         }
-                    }
-                }
+                    //}
+                //}
             }
         }
         return neededItems

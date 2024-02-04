@@ -24,7 +24,7 @@ class CompositeRule:IRule{
 class AndRule:CompositeRule{
    
     override func isSatisfiedBy(field f: Field) -> Bool {
-        return rule1.isSatisfiedBy(field: f) || rule2.isSatisfiedBy(field: f)
+        return rule1.isSatisfiedBy(field: f) && rule2.isSatisfiedBy(field: f)
     }
     var rule1: IRule
     var rule2: IRule

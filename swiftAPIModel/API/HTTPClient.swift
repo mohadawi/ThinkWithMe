@@ -48,19 +48,35 @@ class HTTPClient {
                 
                 
                 //create a name filter
-                var nameProperty = PropertyWindowFactory.create(itemType: "DesiredValue", label: "name filter",desiredList: [ "Abyss","Aginar"])
-                guard let eColor = ValueInListRule(fT: nameProperty)
+                var nameProperty = PropertyWindowFactory.create(itemType: "ValueInList", label: "name filter",desiredList: [ "Abyss","Aginar"], propertyWindowDictionary: Dictionary<String, Any>())
+                guard let nameRule = ValueInListRule(fP: nameProperty)
                     else {
                         return
                 }
+                //create a stars filter
+                var propertyDict = Dictionary<String, Any>()
+                propertyDict["Threshhold"] = -1
+                var starsProperty = PropertyWindowFactory.create(itemType: "ValueGreaterThan", label: "stars filter", propertyWindowDictionary: propertyDict)
+                guard let starsRatingRule = ValueGreaterThanRule(fP: starsProperty)
+                    else {
+                        return
+                }
+                //add a composite rule
+                let c1 = nameRule.And(other: starsRatingRule) as! CompositeRule
+                
                 //add the filter ID to the name of the repository
                 for repo in self.repos{
                     repo.getName().propertiesIDs.append(nameProperty.getID())
                     repo.fields.append(repo.getName())
+                    repo.getStarsCount().propertiesIDs.append(starsProperty.getID())
+                    repo.fields.append(repo.getStarsCount())
+                    
                 }
                 //apply the filter to a temp list
-                var marvelFilter = FilterItems.filterItemsBy(rule: eColor, items: self.repos)
+                var marvelFilter = FilterItems.filterItemsBy(rule: c1, items: self.repos)
                 //replace the original list with the filtered list
+                
+                //apply the filter to the repos
                 self.repos = marvelFilter
                 
             }

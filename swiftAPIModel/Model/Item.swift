@@ -16,6 +16,9 @@ class Item{
     func getName() -> TextField{
         return TextField(fId:"change this to protocol/abstract", fLabel: "NAN", val: "")!
     }
+    func getStarsCount() -> TextField{
+        return TextField(fId:"change this to protocol/abstract", fLabel: "NAN", val: "")!
+    }
 }
 
 

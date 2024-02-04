@@ -23,7 +23,7 @@ class TextField:Field{
         return value;
     }
     func getNumberValue() -> Double{
-        return Double(FP_NAN)
+        return Double(value) ?? Double(FP_NAN)
     }
     func getID() -> String {
         return fieldID
