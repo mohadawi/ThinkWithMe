@@ -14,7 +14,7 @@ class FilterFields
         var neededFields = [Field]()
         for f in fields
         {
-            if (rule.isSatisfiedBy(field: f))
+            if (rule.isSatisfiedBy(f: f))
             {
                 neededFields.append(f)
             }

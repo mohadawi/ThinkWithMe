@@ -8,7 +8,8 @@
 
 import Foundation
 protocol IRule {
-    func isSatisfiedBy(field: Field) -> Bool
+    func isSatisfiedBy(i: Item) -> Bool
+    func isSatisfiedBy(f: Field) -> Bool
     func And(other: IRule) -> IRule
     func getID()->String
 }

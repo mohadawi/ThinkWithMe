@@ -55,14 +55,14 @@ class HTTPClient {
                 }
                 //create a stars filter
                 var propertyDict = Dictionary<String, Any>()
-                propertyDict["Threshhold"] = -1
+                propertyDict["Threshhold"] = 6
                 var starsProperty = PropertyWindowFactory.create(itemType: "ValueGreaterThan", label: "stars filter", propertyWindowDictionary: propertyDict)
                 guard let starsRatingRule = ValueGreaterThanRule(fP: starsProperty)
                     else {
                         return
                 }
                 //add a composite rule
-                let c1 = nameRule.And(other: starsRatingRule) as! CompositeRule
+                let c1 = nameRule.Or(other: starsRatingRule) as! CompositeRule
                 
                 //add the filter ID to the name of the repository
                 for repo in self.repos{

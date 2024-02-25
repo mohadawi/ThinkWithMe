@@ -15,10 +15,23 @@ class ValueGreaterThanRule:CompositeRule{
     init?(fP:FieldProperty){
         pTemplate = fP
     }
-    override func isSatisfiedBy(field: Field) ->Bool {
-        for p in field.getPropertiesIDs(){
+    override func isSatisfiedBy(i: Item) ->Bool {
+        for f in i.fields{
+            for p in f.getPropertiesIDs(){
+                if p == self.getID() {
+                    if pTemplate.getThreshHold() < f.getNumberValue(){
+                    return true
+                }
+            }
+        }
+    }
+    return false
+}
+    override func isSatisfiedBy(f: Field) ->Bool {
+        
+        for p in f.getPropertiesIDs(){
             if p == self.getID() {
-                if pTemplate.getThreshHold() < field.getNumberValue(){
+                if pTemplate.getThreshHold() < f.getNumberValue(){
                     return true
                 }
             }

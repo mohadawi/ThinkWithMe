@@ -15,16 +15,15 @@ class FilterItems
         var neededItems = [Item]()
         //let r = rule as! CompositeRule
         for i in items{
-            for f in i.fields{
+            //for f in i.fields{
                 //for p in f.getPropertiesIDs(){
                     //if (rule.getID() == p){
-                        if (rule.isSatisfiedBy(field: f)){
-                            neededItems.append(i)
-                            break
-                        }
+            if (rule.isSatisfiedBy(i: i)){
+                    neededItems.append(i)
+            }
                     //}
                 //}
-            }
+            //}
         }
         return neededItems
     }

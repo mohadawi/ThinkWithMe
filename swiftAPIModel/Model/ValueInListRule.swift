@@ -17,13 +17,32 @@ class ValueInListRule:CompositeRule{
     init?(fP:FieldProperty){
         pTemplate = fP
     }
-    override func isSatisfiedBy(field: Field) -> Bool {
+    override func isSatisfiedBy(i: Item) -> Bool {
         //if type(of:field.getTemplate()) == type(of: pTemplate) {
-        for p in field.getPropertiesIDs(){
+        for field in i.fields{
+            for p in field.getPropertiesIDs(){
+                if p == self.getID() {
+                    for c in pTemplate.getValuesList()
+                    {
+                        if c == field.getStringValue()
+                        {
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    override func isSatisfiedBy(f: Field) -> Bool {
+        //if type(of:field.getTemplate()) == type(of: pTemplate) {
+        for p in f.getPropertiesIDs(){
             if p == self.getID() {
                 for c in pTemplate.getValuesList()
                 {
-                    if c == field.getStringValue()
+                    if c == f.getStringValue()
                     {
                         return true
                     }

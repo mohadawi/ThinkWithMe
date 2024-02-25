@@ -49,7 +49,8 @@ class Marvel:Item {
         self.description = description
         self.ownerName = ownerName
         self.thumbnailUrl = thumbnailUrl
-        self.starCount = TextField(fId: "starCount", fLabel: "satrs rated",val:starCount ?? "0")!
+        let randomInt = Int.random(in: 0..<10)
+        self.starCount = TextField(fId: "starCount", fLabel: "satrs rated",val:starCount ?? String(randomInt))!
         self.wiki = wiki
         
     }
