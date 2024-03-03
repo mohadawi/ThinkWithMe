@@ -53,6 +53,10 @@ class HTTPClient {
                     else {
                         return
                 }
+                guard let nameRule2 = IsRule(fP: nameProperty,val:"Aginar")
+                    else {
+                        return
+                }
                 //create a stars filter
                 var propertyDict = Dictionary<String, Any>()
                 propertyDict["Threshhold"] = 6
@@ -62,7 +66,7 @@ class HTTPClient {
                         return
                 }
                 //add a composite rule
-                let c1 = nameRule.Or(other: starsRatingRule) as! CompositeRule
+                let c1 = nameRule.Or(other: starsRatingRule).And(other: nameRule2) as! CompositeRule
                 
                 //add the filter ID to the name of the repository
                 for repo in self.repos{

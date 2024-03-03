@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class DesiredValueTextProperty:FieldProperty{
+class ValueInListTextProperty:FieldProperty{
     
     var propertyId: String
     var propertyLabel: String
