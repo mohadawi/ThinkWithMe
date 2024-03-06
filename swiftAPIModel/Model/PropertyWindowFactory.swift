@@ -18,14 +18,17 @@ class PropertyWindowFactory{
                     //create a temporary ID
                     let tempId = "valueInList_" + String(randomId)
                     return ValueInListTextProperty(pId: tempId,pLabel: label,desiredValues:desiredList);
-            case "ValueGreaterThan":
-                let tempId = "valueGreaterThan_" + String(randomId)
-                let s=propertyWindowDictionary["Threshhold"] as! Int
-                let d = Double(s)
-                return ValueGreaterThanNumberProperty(pId: tempId,pLabel: label,desiredThreshHold:d)
-            
-            default:
-                return ValueInListTextProperty();
+                case "ValueGreaterThan":
+                    let tempId = "valueGreaterThan_" + String(randomId)
+                    let s=propertyWindowDictionary["Threshhold"] as! Int
+                    let d = Double(s)
+                    return ValueGreaterThanNumberProperty(pId: tempId,pLabel: label,desiredThreshHold:d)
+                case "ContainsText":
+                    let tempId = "containsText_" + String(randomId)
+                    let tag=propertyWindowDictionary["Tag"] as! String
+                    return ContainsTextProperty(pId: tempId, pLabel: label, textTag: tag)
+                default:
+                    return ValueInListTextProperty();
         }
     }
 }

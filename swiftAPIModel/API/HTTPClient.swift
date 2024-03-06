@@ -47,33 +47,54 @@ class HTTPClient {
                 self.totalCount=count
                 
                 
-                //create a name filter
-                var nameProperty = PropertyWindowFactory.create(itemType: "ValueInList", label: "name filter",desiredList: [ "Abyss","Aginar"], propertyWindowDictionary: Dictionary<String, Any>())
-                guard let nameRule = ValueInListRule(fP: nameProperty)
-                    else {
-                        return
-                }
-                guard let nameRule2 = IsRule(fP: nameProperty,val:"Aginar")
-                    else {
-                        return
-                }
-                //create a stars filter
+                //create a dictionary of needed values
                 var propertyDict = Dictionary<String, Any>()
                 propertyDict["Threshhold"] = 6
+                propertyDict["Tag"] = "Abyss"
+                
+                //create a name filter
+                var nameProperty1 = PropertyWindowFactory.create(itemType: "ValueInList", label: "name filter1",desiredList: [ "Abyss","Aginar"], propertyWindowDictionary: propertyDict)
+                guard let nameRule = ValueInListRule(fP: nameProperty1)
+                    else {
+                        return
+                }
+                var nameProperty2 = PropertyWindowFactory.create(itemType: "ContainsText", label: "name filter2",desiredList: [], propertyWindowDictionary: propertyDict)
+                guard let nameRule2 = IsTextRule(fP: nameProperty2)
+                    else {
+                        return
+                }
+                
+                //create a stars filter
                 var starsProperty = PropertyWindowFactory.create(itemType: "ValueGreaterThan", label: "stars filter", propertyWindowDictionary: propertyDict)
                 guard let starsRatingRule = ValueGreaterThanRule(fP: starsProperty)
                     else {
                         return
                 }
+                
+                //create a tag filter
+                var tagProperty = PropertyWindowFactory.create(itemType: "ContainsText", label: "tag filter", propertyWindowDictionary: propertyDict)
+                guard let tagRule = ContainsTextRule(fP: tagProperty)
+                    else {
+                        return
+                }
+                
+                
                 //add a composite rule
-                let c1 = nameRule.Or(other: starsRatingRule).And(other: nameRule2) as! CompositeRule
+                //let c1 = nameRule.Or(other: starsRatingRule).And(other: nameRule2) as! CompositeRule
+                
+                let c1 = nameRule.Or(other: nameRule2).Or(other: tagRule) as! CompositeRule
                 
                 //add the filter ID to the name of the repository
-                for repo in self.repos{
-                    repo.getName().propertiesIDs.append(nameProperty.getID())
+                for repo in self.repos
+                {
+                   //add the properties to the corresponding fields
+                    repo.getName().propertiesIDs.append(nameProperty1.getID())
                     repo.fields.append(repo.getName())
+                    repo.getName().propertiesIDs.append(nameProperty2.getID())
+                    repo.getName().propertiesIDs.append(tagProperty.getID())
                     repo.getStarsCount().propertiesIDs.append(starsProperty.getID())
                     repo.fields.append(repo.getStarsCount())
+                    
                     
                 }
                 //apply the filter to a temp list

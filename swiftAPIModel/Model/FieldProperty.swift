@@ -12,4 +12,5 @@ protocol FieldProperty {
     func getID() -> String
     func getLabel() -> String
     func getThreshHold() -> Double
+    func getTag() -> String
 }

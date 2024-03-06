@@ -42,8 +42,10 @@
 		4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */; };
 		4EE05ADC2ACA1F9B00AB9CED /* FilterItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */; };
 		4EE05ADE2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */; };
-		4EE05AE02B95037900AB9CED /* IsNotRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADF2B95037900AB9CED /* IsNotRule.swift */; };
-		4EE05AE22B9508C000AB9CED /* IsRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AE12B9508C000AB9CED /* IsRule.swift */; };
+		4EE05AE02B95037900AB9CED /* IsNotTextRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05ADF2B95037900AB9CED /* IsNotTextRule.swift */; };
+		4EE05AE22B9508C000AB9CED /* IsTextRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AE12B9508C000AB9CED /* IsTextRule.swift */; };
+		4EE05AE42B99044000AB9CED /* ContainsTextRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AE32B99044000AB9CED /* ContainsTextRule.swift */; };
+		4EE05AE62B9909EF00AB9CED /* ContainsTextProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE05AE52B9909EF00AB9CED /* ContainsTextProperty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +107,10 @@
 		4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWindowFactory.swift; sourceTree = "<group>"; };
 		4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItems.swift; sourceTree = "<group>"; };
 		4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueGreaterThanNumberProperty.swift; sourceTree = "<group>"; };
-		4EE05ADF2B95037900AB9CED /* IsNotRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsNotRule.swift; sourceTree = "<group>"; };
-		4EE05AE12B9508C000AB9CED /* IsRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsRule.swift; sourceTree = "<group>"; };
+		4EE05ADF2B95037900AB9CED /* IsNotTextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsNotTextRule.swift; sourceTree = "<group>"; };
+		4EE05AE12B9508C000AB9CED /* IsTextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsTextRule.swift; sourceTree = "<group>"; };
+		4EE05AE32B99044000AB9CED /* ContainsTextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainsTextRule.swift; sourceTree = "<group>"; };
+		4EE05AE52B9909EF00AB9CED /* ContainsTextProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainsTextProperty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +170,10 @@
 				4EE05AD92AC0CE5100AB9CED /* PropertyWindowFactory.swift */,
 				4EE05ADB2ACA1F9B00AB9CED /* FilterItems.swift */,
 				4EE05ADD2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift */,
-				4EE05ADF2B95037900AB9CED /* IsNotRule.swift */,
-				4EE05AE12B9508C000AB9CED /* IsRule.swift */,
+				4EE05ADF2B95037900AB9CED /* IsNotTextRule.swift */,
+				4EE05AE12B9508C000AB9CED /* IsTextRule.swift */,
+				4EE05AE32B99044000AB9CED /* ContainsTextRule.swift */,
+				4EE05AE52B9909EF00AB9CED /* ContainsTextProperty.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,16 +404,18 @@
 				4E9188B829B549B1007F351B /* Marvel.swift in Sources */,
 				4E640512277E4B8500BF1BB0 /* MainTableViewCell.swift in Sources */,
 				4E64050D277E4B5600BF1BB0 /* ViewController.swift in Sources */,
-				4EE05AE22B9508C000AB9CED /* IsRule.swift in Sources */,
+				4EE05AE22B9508C000AB9CED /* IsTextRule.swift in Sources */,
 				4E8D13AF29C7B01700B3473E /* IRule.swift in Sources */,
 				4E8D13B129C7B0FE00B3473E /* TextField.swift in Sources */,
 				4E640503277E4B0900BF1BB0 /* ListAPI.swift in Sources */,
 				4E807F3D2779078100D3FED1 /* AppDelegate.swift in Sources */,
+				4EE05AE62B9909EF00AB9CED /* ContainsTextProperty.swift in Sources */,
 				4EDBA6572A23E5E7009F0C86 /* Template.swift in Sources */,
 				4E9188B429B2927B007F351B /* Item.swift in Sources */,
 				4E640508277E4B4300BF1BB0 /* Pizza.swift in Sources */,
 				4EE05AD82AC0CE1400AB9CED /* FilterFields.swift in Sources */,
 				4EE05ADE2B6AC37800AB9CED /* ValueGreaterThanNumberProperty.swift in Sources */,
+				4EE05AE42B99044000AB9CED /* ContainsTextRule.swift in Sources */,
 				4E8D13B929D0D9A700B3473E /* ValueGreaterThanRule.swift in Sources */,
 				4EE05ADA2AC0CE5100AB9CED /* PropertyWindowFactory.swift in Sources */,
 				4E8D13BB29D0DBFD00B3473E /* Field.swift in Sources */,
@@ -417,7 +425,7 @@
 				4E8D13B529C7B4FE00B3473E /* ValueInListRule.swift in Sources */,
 				4EDBA6592A23EF77009F0C86 /* GirlTemplate.swift in Sources */,
 				4EE05AD62AC0CD1A00AB9CED /* ValueInListTextProperty.swift in Sources */,
-				4EE05AE02B95037900AB9CED /* IsNotRule.swift in Sources */,
+				4EE05AE02B95037900AB9CED /* IsNotTextRule.swift in Sources */,
 				4E807F6D2779094800D3FED1 /* FISClass.swift in Sources */,
 				4E640502277E4B0900BF1BB0 /* HTTPClient.swift in Sources */,
 				4E807F412779078100D3FED1 /* ContentView.swift in Sources */,

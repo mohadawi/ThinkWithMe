@@ -1,4 +1,12 @@
 //
+//  ContainsTextProperty.swift
+//  swiftAPIModel
+//
+//  Created by Mohammad Dawi on 3/6/24.
+//  Copyright © 2024 Mohammad Dawi. All rights reserved.
+//
+
+//
 //  TextFieldProperty.swift
 //  swiftAPIModel
 //
@@ -7,17 +15,18 @@
 //
 
 import Foundation
-class ValueInListTextProperty:FieldProperty{
+class ContainsTextProperty:FieldProperty{
+    
     var propertyId: String
     var propertyLabel: String
-    var preferredList: [String]?
-    init(pId:String="", pLabel:String="", desiredValues:[String]=[]){
+    var keyword: String
+    init(pId:String="", pLabel:String="",textTag:String=""){
         propertyId = pId
         propertyLabel = pLabel
-        preferredList = desiredValues
+        keyword = textTag
     }
     func getValuesList() -> [String]{
-        return preferredList ?? []
+        return []
     }
     func getID() -> String {
         return propertyId;
@@ -32,7 +41,8 @@ class ValueInListTextProperty:FieldProperty{
     }
     
     func getTag() -> String {
-        return ""
+        return keyword
     }
     
 }
+

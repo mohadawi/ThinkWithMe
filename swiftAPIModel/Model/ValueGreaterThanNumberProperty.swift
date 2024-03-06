@@ -29,5 +29,8 @@ class ValueGreaterThanNumberProperty:FieldProperty{
     func getLabel() -> String {
         return propertyLabel
     }
+    func getTag() -> String {
+        return ""
+    }
     
 }

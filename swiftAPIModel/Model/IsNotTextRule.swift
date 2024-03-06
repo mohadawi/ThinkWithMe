@@ -1,5 +1,5 @@
 //
-//  IsRule.swift
+//  IsNotRule.swift
 //  swiftAPIModel
 //
 //  Created by Mohammad Dawi on 3/3/24.
@@ -7,39 +7,38 @@
 //
 
 import Foundation
-class IsRule:CompositeRule{
+class IsNotTextRule:CompositeRule{
     var value: String?
     var pTemplate: FieldProperty
-    init?(fP:FieldProperty,val:String){
+    init?(fP:FieldProperty){
         pTemplate = fP
-        value = val
     }
     override func isSatisfiedBy(i: Item) -> Bool {
         //if type(of:field.getTemplate()) == type(of: pTemplate) {
         for field in i.fields{
             for p in field.getPropertiesIDs(){
                 if p == self.getID() {
-                    if field.getStringValue() == value
+                    if field.getStringValue() == pTemplate.getTag()
                     {
-                        return true
+                        return false
                     }
                 }
             }
         }
-        return false
+        return true
     }
     
     override func isSatisfiedBy(f: Field) -> Bool {
         //if type(of:field.getTemplate()) == type(of: pTemplate) {
         for p in f.getPropertiesIDs(){
             if p == self.getID() {
-                if value == f.getStringValue()
+                if pTemplate.getTag() == f.getStringValue()
                 {
-                    return true
+                    return false
                 }
             }
         }
-        return false
+        return true
     }
     
     override func getID() -> String {
